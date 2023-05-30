@@ -1,0 +1,48 @@
+@import '../../styles/mixin';
+.pots {
+  display: flex;
+  padding: 20px 50px;
+
+  h1 {
+    @include textStyle(30px, 500);
+  }
+
+  h2 {
+    @include textStyle(20px, 600);
+  }
+
+  aside {
+    min-width: 250px;
+  }
+
+  .subcategory {
+    margin: 50px 0;
+
+    li {
+      @include textStyle(18px, 300);
+      margin-bottom: 20px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  main {
+    min-width: 695px;
+  }
+
+  .sorting {
+    display: flex;
+    justify-content: flex-end;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}

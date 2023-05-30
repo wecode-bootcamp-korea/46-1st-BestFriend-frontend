@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
 import Checkout from './pages/Checkout/Checkout';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
+import Pots from './pages/Pots/Pots';
 import ProductList from './pages/ProductList/ProductList';
 import Signup from './pages/Signup/Signup';
 
@@ -21,6 +22,7 @@ const Router = () => {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/productdetail" element={<ProductDetail />} />
         <Route path="/productlist" element={<ProductList />} />
+        <Route path="/pots" element={<Pots />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
