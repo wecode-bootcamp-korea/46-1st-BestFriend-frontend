@@ -63,6 +63,14 @@ const ProductDetail = () => {
           >
             장바구니 담기
           </button>
+          <button
+            className="btn wishlist-btn"
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+          >
+            위시리스트
+          </button>
         </section>
       </main>
       <section className="product-recommend">
