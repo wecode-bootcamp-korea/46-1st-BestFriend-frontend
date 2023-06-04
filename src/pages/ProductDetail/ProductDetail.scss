@@ -81,6 +81,12 @@
       &:hover {
         border: 1px solid $primary-color;
       }
+
+      .icon {
+        position: relative;
+        top: -1px;
+        left: 10px;
+      }
     }
   }
 }
@@ -132,6 +138,64 @@
       background-color: rgba(0, 0, 0, 0.5);
       color: $secondary-color;
     }
+  }
+}
+
+.wishlist {
+  visibility: hidden;
+  position: fixed;
+  z-index: 100;
+  top: 60px;
+  width: 100vw;
+  height: 100vh;
+  transition: all 1s;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.wishlist-modal {
+  @include textStyle(17px, 500);
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  width: 25%;
+  padding: 20px;
+  background-color: $secondary-color;
+
+  .wishlist-modal-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .close-btn {
+      border: none;
+      background-color: $secondary-color;
+      color: $primary-color;
+    }
+  }
+
+  .wishlist-modal-content {
+    display: flex;
+
+    .img-box {
+      width: 30%;
+      margin-right: 10px;
+    }
+
+    .img {
+      width: 100%;
+    }
+  }
+
+  .btn {
+    @include textStyle(14px, 500);
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background-color: $primary-color;
+    color: $secondary-color;
   }
 }
 

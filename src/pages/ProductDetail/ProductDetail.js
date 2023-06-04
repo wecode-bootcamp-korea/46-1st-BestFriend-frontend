@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineHeart, AiTwotoneHeart } from 'react-icons/ai';
 import Recommend from './component/Recommend';
 import './ProductDetail.scss';
 
@@ -8,6 +9,8 @@ const ProductDetail = () => {
   const [productList, setProductList] = useState({});
   const [count, setCount] = useState(1);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isWishlistAdd, setIsWishlistAdd] = useState(false);
+  const [isWishModalOpen, setIsWishModalOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -66,10 +69,20 @@ const ProductDetail = () => {
           <button
             className="btn wishlist-btn"
             onClick={() => {
-              setIsModalOpen(true);
+              setIsWishlistAdd(!isWishlistAdd);
+              isWishlistAdd
+                ? setIsWishModalOpen(false)
+                : setIsWishModalOpen(true);
+              isWishlistAdd === false &&
+                window.scrollTo({ top: 0, behavior: 'auto' });
             }}
           >
             위시리스트
+            {isWishlistAdd ? (
+              <AiTwotoneHeart className="icon" />
+            ) : (
+              <AiOutlineHeart className="icon" />
+            )}
           </button>
         </section>
       </main>
@@ -111,6 +124,42 @@ const ProductDetail = () => {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+      <section className={isWishModalOpen ? 'wishlist visible ' : 'wishlist'}>
+        <div className="wishlist-modal">
+          <div className="wishlist-modal-title">
+            <p>위시리스트에 추가되었습니다</p>
+            <button
+              className="close-btn"
+              onClick={() => {
+                setIsWishModalOpen(false);
+              }}
+            >
+              X
+            </button>
+          </div>
+          <div className="wishlist-modal-content">
+            <div className="img-box">
+              <img
+                src={productList.img_url}
+                alt="wishlist-img"
+                className="img"
+              />
+            </div>
+            <div>
+              <p>몬스테라</p>
+              <p>10,000원</p>
+            </div>
+          </div>
+          <button
+            className="btn"
+            onClick={() => {
+              navigate('/wishlist');
+            }}
+          >
+            위시리스트 보기
+          </button>
         </div>
       </section>
     </>
